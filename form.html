@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> form Example</title>
+    <link rel="stylesheet" href="web.css">
+
+</head>
+
+<body>
+    <form name="form" id="form">
+        <header class="headerContainer">HTML5 FORM</header>
+        <div>
+            <label for="text">Input Name</label>
+            <input type="text" id="text" name="text" required>
+            <error-output class="text-error" for="text"></error-output>
+        </div>
+        <div>
+            <label for="pwd">Input Password </label>
+            <input type="password" id="pwd" name="pwd" required>
+            <error-output class="pwd-error" for="pwd"></error-output>
+        </div>
+        <div>
+            <label for="email">Input Email</label>
+            <input type="email" id="email" name="email" required>
+            <error-output class="email-error" for="email"></error-output>
+        </div>
+        <div>
+            <label for="url">Input URL</label>
+            <input type="url" id="url" name="url">
+        </div>
+        <div>
+            <label for="number">Input Number</label>
+            <input type="tel" id="number" name="number">
+            <error-output class="phone-error" for="number"></error-output>
+        </div>
+        <!-- <div>
+            <label for="tel">Tel number Type</label>
+            <input type="tel" id="tel" name="tel">
+        </div> -->
+        <!-- <div>
+            <label for="search">Search Input Type</label>
+            <input type="search" id="search" name="search">
+        </div> -->
+        <div class="nativeDateTimePicker">
+            <label for="party">Choose a date and time</label>
+            <input type="datetime-local" id="party" name="bday">
+            <span class="validity"></span>
+        </div>
+        <div>
+            <label for="salary">Choose your Salary</label>
+            <input type="range" id="salary" name="salary" min="300000" max="500000" step="100" value="400000">
+            <output class="salary-output" for="salary">400000</output>
+        </div>
+        <div>
+            <input type="submit" id="submit"></input>
+        </div>
+    </form>
+    <script type="text/javascript">
+        function checkRegex(inputlabel, textError, pattern, nameField) {
+            if (pattern.test(inputlabel.value))
+                textError.textContent = ""
+            else
+                textError.textContent = nameField + " is Invalid!!"
+        }
+
+        const name = document.querySelector('#text')
+        const textError = document.querySelector('.text-error')
+        text.addEventListener('input', function () {
+            checkRegex(name, textError, RegExp('^[A-Z]{1}[a-z]{2,}$'), "Name")
+        });
+
+        const pwd = document.querySelector('#pwd')
+        const pwdError = document.querySelector('.pwd-error')
+        pwd.addEventListener('input', function () {
+            checkRegex(pwd, pwdError, RegExp('^(?=.*\\d)(?=.*[A-Z])(?=.*\\W)(?!.*\\W\\w*\\W)(?!.*\\s).{8,}$'), "Password")
+        });
+
+        const email = document.querySelector('#email')
+        const emailError = document.querySelector('.email-error')
+        email.addEventListener('input', function () {
+            let emailRegex = RegExp('^[a-zA-Z0-9]+([\\. | \\- | \\_]{1}[A-Za-z0-9]+)*(@){1}[a-zA-Z0-9]+\\.[a-zA-Z]{2,}(\\.[A-Za-z]{2,})?$')
+            checkRegex(email, emailError, emailRegex, "Email")
+        });
+
+        const phoneNumber = document.querySelector('#number')
+        const phoneError = document.querySelector('.phone-error')
+        phoneNumber.addEventListener('input', function () {
+            checkRegex(phoneNumber, phoneError, RegExp('^[1-9][0-9]{1,2}(\\s)[1-9][0-9]{9}$'), "PhoneNumber")
+        });
+
+        const salary = document.querySelector('#salary')
+        const output = document.querySelector('.salary-output')
+        output.textContent = salary.value;
+        salary.addEventListener('input', function () {
+            output.textContent = salary.value;
+        });
+
+        // const form = document.getElementById('form');
+        const submit = document.querySelector('#submit')
+        submit.addEventListener('click', function () {
+            alert("Form Submitted")
+        });
+    </script>
+
+</body>
+
+</html>
