@@ -4,14 +4,7 @@ class EmployeePayrollData {
 
     get name() { console.log("GETTER NAME:"); return this._name }
     set name(name) {
-        // let nameRegex = RegExp('^[A-Z]{1}[a-z]{3,}$');
-        // if (nameRegex.test(name))
-        //     this._name = name;
-        // else throw 'Name is Incorrect!';
-        console.log("INside NAme sette truee")
-
         this._name = name;
-
     }
 
     get gender() { return this._gender }
@@ -42,9 +35,8 @@ class EmployeePayrollData {
     get startDate() { return this._startDate }
     set startDate(startDate) {
         let todayDate = new Date()
-        console.log("INside StartDate::" + startDate)
+        console.log("StartDate::" + startDate)
         if (startDate <= todayDate && startDate >= todayDate.setDate(todayDate.getDate() - 30)) {
-            console.log("COndition truee")
             this._startDate = startDate;
             console.log(this._startDate)
         }
@@ -69,7 +61,6 @@ const addData = (ev) => {
         employeePayroll.department = getCheckBoxValue(document.getElementsByClassName('checkbox'));
         employeePayroll.salary = output.textContent;
         employeePayroll.startDate = new Date(document.getElementById('month').value + " " + document.getElementById('day').value + "," + document.getElementById('year').value)
-        console.log("StartDate::" + employeePayroll._startDate)
         employeePayroll.note = document.getElementById('notes').value
     }
     catch (err) {
@@ -81,9 +72,9 @@ const addData = (ev) => {
     console.warn('added', { employees })
     localStorage.setItem('EmployeeList', JSON.stringify(employees, '\t', 2));
 }
-const resetForm = () =>{
+const resetForm = () => {
     document.forms[0].reset();
-    const output = document.querySelector('.salary-output') 
+    const output = document.querySelector('.salary-output')
     output.textContent = ""
 }
 
