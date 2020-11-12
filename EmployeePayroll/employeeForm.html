@@ -26,13 +26,14 @@
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" pattern="^[A-Z][A-Za-z]{3,}" placeholder="Your Name" required>
+
             </div>
             <div class="row-content">
                 <label class="label text" for="profile">Profile image</label>
                 <div class="profile-radio-content">
                     <label>
                         <input type="radio" id="profile1" name="profile"
-                            value="EmployeePayroll\assets\profile-images\Ellipse -3.png">
+                            value="EmployeePayroll\assets\profile-images\Ellipse -3.png" checked>
                         <img class="profile" id="image1" src="assets/profile-images/Ellipse -3.png">
                     </label>
                     <label>
@@ -55,7 +56,7 @@
             <div class="row-content">
                 <label class="label text" for="gender">Gender</label>
                 <div>
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="gender" value="male" checked>
                     <label class="text" for="male">Male</label>
                     <input type="radio" id="female" name="gender" value="female">
                     <label class="text" for="female">Female</label>
@@ -77,13 +78,13 @@
             <div class="row content">
                 <label class="label text" for="salary">Salary:</label>
                 <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
-                <output class="salary-output" for="salary">400000</output>
+                <output class="salary-output" for="salary" id="outputsalary">400000</output>
             </div>
             <div class="row-content">
                 <label class = "label text" for="startDate">StartDate</label>
                 <div>
                     <select id="day" name="Day">
-                        <option value="1">1</option>
+                        <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
@@ -116,7 +117,7 @@
                         <option value="31">31</option>
                     </select>
                     <select id="month" name="Month">
-                        <option value="Jan">January</option>
+                        <option value="Jan" selected>January</option>
                         <option value="Feb">February</option>
                         <option value="Mar">March</option>
                         <option value="Apr">April</option>
@@ -130,7 +131,7 @@
                         <option value="Dec">December</option>
                     </select>
                     <select id="year" name="Year">
-                        <option value="2020">2020</option>
+                        <option value="2020" selected>2020</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
                         <option value="2017">2017</option>
@@ -146,7 +147,7 @@
                 <span class="submit-reset"></span>
                 <a href="./home.html" class="button" id="cancelButton">Cancel</a>
                     <button type="submit" class="button" id="submitButton">Submit</button>
-                    <button type="reset" class="button" id="resetButton">Reset</button>
+                    <button type="reset" class="button" id="resetButton" onclick="resetForm();">Reset</button>
             </span>
         </form>
     </div>

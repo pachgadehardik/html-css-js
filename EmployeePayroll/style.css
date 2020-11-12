@@ -144,12 +144,19 @@ select{
     margin-block-end: 30px;
 }
 
+#submitButton:hover, #resetButton:hover, #cancelButton:hover{
+    background-color: cadetblue;
+    color: white;
+}
 
 #cancelButton{
     text-decoration: none;
     text-align: center;
     background-color: #f5f5f5;
 } 
+#cancelButton:link {color:#000000;}    /* unvisited link is black*/
+#cancelButton:visited {color:#000000;} /* visited link is black  */
+
 
 #resetButton{
     text-decoration: none;
@@ -196,3 +203,4 @@ select{
         align-items: flex-start;
     }
 }
+
