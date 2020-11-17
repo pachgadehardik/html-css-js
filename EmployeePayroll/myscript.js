@@ -2,7 +2,7 @@ class EmployeePayrollData {
 
     constructor() { }
 
-    get name() { console.log("GETTER NAME:"); return this._name }
+    get name() {return this._name }
     set name(name) {
         this._name = name;
     }
