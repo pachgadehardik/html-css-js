@@ -26,6 +26,7 @@
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" pattern="^[A-Z][A-Za-z]{3,}" placeholder="Your Name" required>
+                <error-output class="text-error" for="text"></error-output>
 
             </div>
             <div class="row-content">
@@ -33,22 +34,22 @@
                 <div class="profile-radio-content">
                     <label>
                         <input type="radio" id="profile1" name="profile"
-                            value="EmployeePayroll\assets\profile-images\Ellipse -3.png" checked>
+                            value="assets\profile-images\Ellipse -3.png" checked>
                         <img class="profile" id="image1" src="assets/profile-images/Ellipse -3.png">
                     </label>
                     <label>
                         <input type="radio" id="profile2" name="profile"
-                            value="EmployeePayroll\assets\profile-images\Ellipse 1.png">
+                            value="assets\profile-images\Ellipse 1.png">
                         <img class="profile" id="image2" src="assets/profile-images/Ellipse -1.png">
                     </label>
                     <label>
                         <input type="radio" id="profile3" name="profile"
-                            value="EmployeePayroll\assets\profile-images\Ellipse -8.png">
+                            value="assets\profile-images\Ellipse -8.png">
                         <img class="profile" id="image3" src="assets/profile-images/Ellipse -8.png">
                     </label>
                     <label>
                         <input type="radio" id="profile4" name="profile"
-                            value="EmployeePayroll\assets\profile-images\Ellipse -7.png">
+                            value="assets\profile-images\Ellipse -7.png">
                         <img class="profile" id="image4" src="assets/profile-images/Ellipse -7.png">
                     </label>
                 </div>
@@ -138,6 +139,7 @@
                         <option value="2016">2016</option>
                     </select>
                 </div>
+                <error-output class="date-error" for="startDate"></error-output>
             </div>
             <div class="row content">
                 <label class="label text" for="notes">Notes</label>

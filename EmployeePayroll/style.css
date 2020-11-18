@@ -226,7 +226,7 @@ select{
     opacity: 1;
 }
 
-.emp-count{
+.employee-count{
     background-color: #82a70c;
     color: #ffffff;
     border-radius: 42%;
@@ -301,4 +301,11 @@ td img :first-child{
     display: inline-block;
     font-weight: 300;
     margin-bottom: 8px;
+}
+
+
+error-output {
+    font-size:12px;
+    font-style:italic;
+    color:red;
 }
