@@ -212,11 +212,11 @@ form,.form-head{
 }
 
 .address-detail-text{
-    font: normal normal normal 22px/29px Roboto;
+    font: normal normal normal 25px/29px Roboto;
     letter-spacing: 0px;
     color: #008CFF;
     opacity: 1;
-    padding-left: 50px;
+    padding: 0px 75px 0px 0px;
 }
 .address-count{
     background-color: #008CFF;
