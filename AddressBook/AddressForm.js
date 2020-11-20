@@ -8,7 +8,7 @@ class Contacts {
     }
     get fullName() { return this._fullName }
     set fullName(fullName) {
-        let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+        let nameRegex = RegExp('^[a-zA-Z\\s]+$');
         if (nameRegex.test(fullName))
             this._fullName = fullName;
         else throw 'Fullname is Incorrect!';
@@ -20,7 +20,6 @@ class Contacts {
             this._address = address;
         else {
             throw 'Address is Incorrect';
-            alert("Address is Incorrect");
         }
     }
     get city() { return this._city }
@@ -39,7 +38,6 @@ class Contacts {
         if (phoneNumberRegex.test(phoneNumber))
             this._phoneNumber = phoneNumber
         else {
-
             throw 'phoneNumber is Incorrect';
         }
     }
@@ -71,7 +69,6 @@ const addData = (ev) => {
             alert("Field is not valid!!");
         }
         resetForm();
-        // window.location.replace(site_properties.home_page);
         window.location.replace("addressHomePage.html");
     }
     catch (err) {
@@ -80,7 +77,6 @@ const addData = (ev) => {
 }
 
 const setContactDataObj = () => {
-    // employeePayrollObj.id = id++;
     contactDataObj._fullName = document.getElementById('fullname').value;
     contactDataObj._address = document.getElementById('address').value;
     contactDataObj._city = document.getElementById('city').value;
@@ -107,7 +103,6 @@ const createAndUpdateStorage = () => {
         console.log("Inside Else:");
         contactList = [createContactData()]
     }
-    // alert(employeePayrollList)
     localStorage.setItem("ContactList", JSON.stringify(contactList));
 }
 
