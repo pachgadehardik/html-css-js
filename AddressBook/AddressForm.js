@@ -1,6 +1,6 @@
-
+let validationFlag = true;
 class Contacts {
-    constructor() {} 
+    constructor() { }
     //getter and setter
     get id() { return this._id }
     set id(id) {
@@ -15,19 +15,22 @@ class Contacts {
     }
     get address() { return this._address }
     set address(address) {
-        // let addressRegex = RegExp('^[A-Za-z]{4,}$');
-        // if (addressRegex.test(address))
+        let addressRegex = RegExp('^[a-zA-z]{3,}(\\s[a-zA-z]{3,})*$');
+        if (addressRegex.test(address))
             this._address = address;
-        // else throw 'address is Incorrect!';
+        else {
+            throw 'Address is Incorrect';
+            alert("Address is Incorrect");
+        }
     }
     get city() { return this._city }
     set city(city) {
         this._city = city;
-   
+
     }
     get state() { return this._state }
     set state(state) {
-            this._state = state;
+        this._state = state;
     }
 
     get phoneNumber() { return this._phoneNumber }
@@ -35,7 +38,10 @@ class Contacts {
         let phoneNumberRegex = RegExp('^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$')
         if (phoneNumberRegex.test(phoneNumber))
             this._phoneNumber = phoneNumber
-        else throw 'phoneNumber is Incorrect';
+        else {
+
+            throw 'phoneNumber is Incorrect';
+        }
     }
 
     get pinCode() { return this._pinCode }
@@ -61,6 +67,9 @@ const addData = (ev) => {
     try {
         setContactDataObj();
         createAndUpdateStorage();
+        if (!validationFlag) {
+            alert("Field is not valid!!");
+        }
         resetForm();
         // window.location.replace(site_properties.home_page);
         window.location.replace("addressHomePage.html");
@@ -84,13 +93,13 @@ const createAndUpdateStorage = () => {
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
     console.log(contactList)
     if (contactList) {
-        console.log("Inside Create UPdate: Id Is "+ contactDataObj._fullName);
+        console.log("Inside Create UPdate: Id Is " + contactDataObj._fullName);
         let contactData = contactList.find(contactdata => contactdata._id == contactDataObj._id);
-        console.log("Contacts: "+ contactData)
+        console.log("Contacts: " + contactData)
         if (!contactData) contactList.push(createContactData());
         else {
             const index = contactList.map(contactdata => contactdata._id).indexOf(contactData._id);
-            console.log("Index is  "+index)
+            console.log("Index is  " + index)
             contactList.splice(index, 1, createContactData(contactData._id));
         }
     }
@@ -112,7 +121,7 @@ const createContactData = (id) => {
     return contactData;
 }
 
-const setContactData = (contactData)=>{
+const setContactData = (contactData) => {
 
     try {
         contactData.fullName = contactDataObj._fullName;
@@ -146,9 +155,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     const fullName = document.querySelector('#fullname');
     const textError = document.querySelector('.text-error');
-    fullName.addEventListener('input', function(){
-        if(fullName.value.length == 0){
-            textError.textContent=""
+    fullName.addEventListener('input', function () {
+        if (fullName.value.length == 0) {
+            textError.textContent = ""
             return;
         }
         try {
@@ -161,9 +170,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     const phone = document.querySelector('#phone_number');
     const phoneError = document.querySelector('.phone-error');
-    phone.addEventListener('input', function(){
-        if(phone.value.length == 0){
-            phoneError.textContent=""
+    phone.addEventListener('input', function () {
+        if (phone.value.length == 0) {
+            phoneError.textContent = ""
             return;
         }
         try {
@@ -171,6 +180,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
             phoneError.textContent = ""
         } catch (error) {
             phoneError.textContent = error;
+        }
+    });
+
+    const address = document.querySelector('#address');
+    const addressError = document.querySelector('.address-error');
+    address.addEventListener('input', function () {
+        if (address.value.length == 0) {
+            addressError.textContent = "";
+            return;
+        }
+        try {
+            (new Contacts()).address = address.value;
+            addressError.textContent = ""
+        } catch (error) {
+            addressError.textContent = error;
         }
     });
 
