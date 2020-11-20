@@ -21,19 +21,19 @@
         </header>
         <div class="form-content">
             <form class="form" action="#" onsubmit="addData(event);return false" >
-                <div class="form-head">PERSON ADDRESS FORM
-                    <a href="addressHomePage.html"><img src="assets/x-mark.png" style="vertical-align: centre; height: 42px; padding-right: 25px;"></a>
+                <div class="form-head">PERSON ADDRESS FORM 
+                    <a href="addressHomePage.html"><img src="assets/x-mark.png" style="float: right; margin-right: 40px; width: 42px; height: 42px;"></a>
                 </div>
-                
+                <!-- vertical-align: centre; height: 42px; padding-right: 25px; -->
                 <div class="column-content">
                     <div class="label text">
                         <label for="fullname">Full Name</label>
-                        <input class="input" type="text" id="fullname" name="fullname" required>
+                        <input class="input" type="text" id="fullname" name="fullname" placeholder="Fullname" required>
                         <error-output class="text-error" for="text"></error-output>
                     </div>
                     <div class="label text">
                         <label for="phone_number">Phone Number</label>
-                        <input class="input" type="tel" id="phone_number" name="phone_number" required>
+                        <input class="input" type="tel" id="phone_number" name="phone_number" placeholder="PhoneNumber" required>
                         <error-output class="phone-error" for="text"></error-output>
                     </div>
                     <div class="label text">
